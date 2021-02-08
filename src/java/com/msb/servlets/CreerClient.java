@@ -5,6 +5,7 @@
  */
 package com.msb.servlets;
 
+import com.msb.beans.Client;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -29,6 +30,38 @@ public class CreerClient extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // récupère les données du formulaire
+        String nom = request.getParameter("nomClient");
+        String prenom = request.getParameter("prenomClient");
+        String adresse = request.getParameter("adresseClient");
+        String telephone = request.getParameter("telephoneClient");
+        String email = request.getParameter("emailClient");
         
+        // si un champ pas rempli, erreur, sinon, succès
+        String message = "";
+        
+        if ( nom.isEmpty() || adresse.isEmpty() || telephone.isEmpty() ) {
+            message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires<br>"
+                    + "<a href='/MaSuperBoutique/creerClient.jsp'>Cliquez ici</a>"
+                    + " pour accéder au formulaire de création d'un client.";
+        } else {
+            message = "Client créé avec succès !";
+        }
+        
+        // créé du bean client
+        Client client = new Client();
+        client.setNom(nom);
+        client.setPrenom(prenom);
+        client.setAdresse(adresse);
+        client.setTelephone(telephone);
+        client.setEmail(email);
+        
+        // passe le client et le message en paramètre de la requête
+        request.setAttribute("client", client);
+        request.setAttribute("message", message);
+        
+        // transmet à la jsp d'affichage du client
+        this.getServletContext().getRequestDispatcher("/afficherClient.jsp")
+                .forward(request, response);        
     }
 }

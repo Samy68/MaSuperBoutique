@@ -9,9 +9,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Afficher un client</title>
+        <link type="text/css" rel="stylesheet" href="inc/style.css" />
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <p class="info">${ message }</p>
+        <p>Nom : ${ client.nom }</p>
+        <p>Prénom : ${ client.prenom }</p>
+        <p>Numéro de téléphone : ${ client.telephone }</p>
+        <p>Adresse : ${ client.adresse }</p>
+        <p>Email : ${ client.email }</p>        
     </body>
 </html>

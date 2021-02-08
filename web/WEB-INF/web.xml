@@ -10,11 +10,11 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>CreerClient</servlet-name>
-        <url-pattern>/creerClient</url-pattern>
+        <url-pattern>/creationClient</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CreerCommande</servlet-name>
-        <url-pattern>/creerCommande</url-pattern>
+        <url-pattern>/creationCommande</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
