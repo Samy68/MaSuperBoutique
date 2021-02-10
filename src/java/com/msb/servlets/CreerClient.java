@@ -30,7 +30,7 @@ public class CreerClient extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // récupère les données du formulaire
+        // récupère les données client
         String nom = request.getParameter("nomClient");
         String prenom = request.getParameter("prenomClient");
         String adresse = request.getParameter("adresseClient");

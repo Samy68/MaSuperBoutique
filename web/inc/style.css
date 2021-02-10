@@ -11,7 +11,7 @@ and open the template in the editor.
 /* Général ------------------------------------------------------------------------------------- */
 
 body, p, legend, label, input {
-    font: normal 8pt verdana, helvetica, sans-serif;
+    font: normal 12px verdana, helvetica, sans-serif;
 }
 
 /* Forms --------------------------------------------------------------------------------------- */

@@ -10,11 +10,11 @@ package com.msb.beans;
  * @author samy
  */
 public class Client {
-    String nom;
-    String prenom;
-    String adresse;
-    String telephone;
-    String email;
+    private String nom;
+    private String prenom;
+    private String adresse;
+    private String telephone;
+    private String email;
 
     public String getNom() {
         return nom;
