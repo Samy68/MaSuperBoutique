@@ -15,11 +15,11 @@
     <body>
         <p class="info">${ message }</p>
         <p>Client</p>
-        <p>Nom : ${ client.nom }</p>
-        <p>Prénom : ${ client.prenom }</p>
-        <p>Adresse : ${ client.adresse }</p>
-        <p>Numéro de téléphone : ${ client.telephone }</p>
-        <p>Email : ${ client.email }</p>
+        <p>Nom : ${ commande.client.nom }</p>
+        <p>Prénom : ${ commande.client.prenom }</p>
+        <p>Adresse : ${ commande.client.adresse }</p>
+        <p>Numéro de téléphone : ${ commande.client.telephone }</p>
+        <p>Email : ${ commande.client.email }</p>
         <p>Commande</p>
         <p>Date : ${ commande.date }</p>
         <p>Montant : ${ commande.montant }</p>

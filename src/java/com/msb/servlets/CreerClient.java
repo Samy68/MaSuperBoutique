@@ -40,7 +40,8 @@ public class CreerClient extends HttpServlet {
         // si un champ pas rempli, erreur, sinon, succès
         String message = "";
         
-        if ( nom.isEmpty() || adresse.isEmpty() || telephone.isEmpty() ) {
+        if ( nom.trim().isEmpty() || adresse.trim().isEmpty() 
+                || telephone.trim().isEmpty() ) {
             message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires<br>"
                     + "<a href='/MaSuperBoutique/creerClient.jsp'>Cliquez ici</a>"
                     + " pour accéder au formulaire de création d'un client.";

@@ -46,11 +46,11 @@ public class CreerCommande extends HttpServlet {
         String date = dt.toString( "dd/MM/yyyy HH:mm:ss" );
 
         // récupère les données de la commande        
-        Float montant;
+        double montant;
         try {
-            montant = Float.parseFloat( request.getParameter( "montantCommande" ) );
+            montant = Double.parseDouble( request.getParameter( "montantCommande" ) );
         } catch ( NumberFormatException e ) {
-            montant = 0f;
+            montant = -1;
         }
 
         String modePaiement = request.getParameter( "modePaiementCommande" );
@@ -60,9 +60,10 @@ public class CreerCommande extends HttpServlet {
 
         // vérifie que les champs obligatoires sont bien remplis
         String message = "";
-        if ( nom.isEmpty() || adresse.isEmpty() || telephone.isEmpty()
-                || date.isEmpty() || montant == null || modePaiement.isEmpty()
-                || modeLivraison.isEmpty() ) {
+        if ( nom.trim().isEmpty() || adresse.trim().isEmpty() 
+                || telephone.trim().isEmpty() || date.trim().isEmpty() 
+                || montant == -1 || modePaiement.trim().isEmpty()
+                || modeLivraison.trim().isEmpty() ) {
             message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires<br>"
                     + "<a href='/MaSuperBoutique/creerCommande.jsp'>Cliquez ici</a>"
                     + " pour accéder au formulaire de création d'une commande.";
@@ -80,6 +81,7 @@ public class CreerCommande extends HttpServlet {
         
         // créé un bean Commande
         Commande commande = new Commande();
+        commande.setClient( client );
         commande.setDate( date );
         commande.setMontant( montant );
         commande.setModePaiement( modePaiement );
@@ -89,8 +91,6 @@ public class CreerCommande extends HttpServlet {
 
         // passe les données à la vue
         request.setAttribute( "message", message );
-        request.setAttribute( "date", date );
-        request.setAttribute( "client", client );
         request.setAttribute( "commande", commande );
         this.getServletContext().getRequestDispatcher( "/afficherCommande.jsp" )
                 .forward( request, response );

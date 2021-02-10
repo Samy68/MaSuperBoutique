@@ -10,8 +10,9 @@ package com.msb.beans;
  * @author samy
  */
 public class Commande {
+    private Client client;
     private String date;
-    private Float montant;
+    private Double montant;
     private String modePaiement;
     private String statutPaiement;
     private String modeLivraison;
@@ -25,11 +26,11 @@ public class Commande {
         this.date = date;
     }
 
-    public float getMontant() {
+    public Double getMontant() {
         return montant;
     }
 
-    public void setMontant( Float montant ) {
+    public void setMontant( Double montant ) {
         this.montant = montant;
     }
 
@@ -63,6 +64,14 @@ public class Commande {
 
     public void setStatutLivraison( String statutLivraison ) {
         this.statutLivraison = statutLivraison;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient( Client client ) {
+        this.client = client;
     }
     
     
